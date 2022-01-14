@@ -1,0 +1,24 @@
+header{
+    background: rgba(128, 128, 128, 0.24);
+    padding: 0;
+    border-bottom: 1px solid #e72929;
+}
+
+.logo{
+color:red;
+}
+.container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    padding-left: 0px;
+}
+a:hover{
+    background: red;
+    color: white;
+}
+a.logo{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 1rem;
+}

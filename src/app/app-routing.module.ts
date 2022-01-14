@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { MoviesComponent } from './movies/movies.component';
+import { SearchboxComponent } from './searchbox/searchbox.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'search/:searchTerm', component:MoviesComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,24 @@
+<div class="sbox">
+  <div class="searchArea">
+    <label for="name">Search for the movie name </label><br>
+    <input type="text" placeholder="Title" #searchTerm >
+    <button (click)="getTitle(searchTerm.value, page) " >Search</button>
+  </div>
+   
+
+  <div class="movies"> 
+
+    <div *ngFor="let point of data.Search" class="movie-card">
+            <div class="fill">
+              <img src={{point.Poster}}>
+            </div>
+            
+            <div class="movie-details">
+                <h3>Title: {{point.Title | uppercase}} </h3>
+                <h3>IMDB ID: {{point.imdbID}}</h3>
+                <h3>Year of Release: {{point.Year}} </h3>
+            </div>               
+          
+    </div>
+
+</div>

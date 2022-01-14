@@ -1,0 +1,15 @@
+
+<div class="movies"> 
+
+        <div *ngFor="let point of data.Search" class="movie-card">
+    
+                <img src={{point.Poster}}>
+                <div class="movie-details">
+                    <h3>Title: {{point.Title | uppercase}} </h3>
+                    <h3>IMDB ID: {{point.imdbID}}</h3>
+                    <h3>Year of Release: {{point.Year}} </h3>
+                </div>               
+              
+        </div>
+    
+</div>
