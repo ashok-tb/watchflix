@@ -9,17 +9,11 @@ import { AppRoutingModule } from '../app-routing.module';
   styleUrls: ['./searchbox.component.scss']
 })
 export class SearchboxComponent implements OnInit {
-  data : any = [];
-  page : number = 1;
-  totalPages: number = 0;
   constructor(private route: ActivatedRoute, private searchResults: MovieService, private router: Router,
    ) { }
-  getTitle(sTerm : string, page: number) : void {
-    this.searchResults.getTitles(sTerm, page).subscribe(data =>{
-      this.data = data;
-      this.totalPages = Math.ceil((this.data.totalResults)/10);      
-      
-        this.router.navigate([`search/${sTerm}/${page}`]);
+  getTitle(sTerm : string) : void {
+    this.searchResults.getTitles(sTerm,1).subscribe(data =>{
+        this.router.navigate([`search/${sTerm}/${1}`]);
     })
     
   }

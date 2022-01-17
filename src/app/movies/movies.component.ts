@@ -8,13 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  
+  data : any = [];
+  page : any = 1;
+  searchTerm : any = "";
+  totalPages: number = 0;
   constructor(private route: ActivatedRoute, private searchResults: MovieService, private router: Router,
     private activeRoute:ActivatedRoute) { }
     
+    getTitle(sTerm : any, page: number) : void {
+      this.searchResults.getTitles(sTerm, page).subscribe(data =>{
+        this.data = data;
+        this.totalPages = Math.ceil((this.data.totalResults)/10);      
+        
+          this.router.navigate([`search/${sTerm}/${page}`]);
+      })
+      
+    }
 
   ngOnInit(): void { 
-    console.log(this.route.snapshot.params);
+    this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
+    this.page = this.route.snapshot.paramMap.get("page");
+    this.getTitle(this.searchTerm, this.page)
    }
 
 }
