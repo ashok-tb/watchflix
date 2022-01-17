@@ -9,17 +9,20 @@ import { AppRoutingModule } from '../app-routing.module';
   styleUrls: ['./searchbox.component.scss']
 })
 export class SearchboxComponent implements OnInit {
+  page : any = 1;
+  searchTerm : any = "";
   constructor(private route: ActivatedRoute, private searchResults: MovieService, private router: Router,
    ) { }
-  getTitle(sTerm : string) : void {
-    this.searchResults.getTitles(sTerm,1).subscribe(data =>{
+  getTitle(sTerm : any) : void {
+    this.searchResults.getTitles(sTerm, 1).subscribe(data =>{
         this.router.navigate([`search/${sTerm}/${1}`]);
     })
     
   }
 
   ngOnInit(): void { 
-    
+    this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
+    this.getTitle(this.searchTerm)
    }
 
 }

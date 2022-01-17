@@ -15,4 +15,11 @@
           
     </div>
 </div>
+
+<div class = "pgn-button" >
+  <a *ngFor="let n of numSequence(totalPages);
+  let i = index;"
+  href="/search/{{searchTerm}}/{{i+1}}"
+  >{{i+1}}</a>
+</div> 
 </div>

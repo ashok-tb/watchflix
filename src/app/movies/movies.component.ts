@@ -18,7 +18,7 @@ export class MoviesComponent implements OnInit {
     getTitle(sTerm : any, page: number) : void {
       this.searchResults.getTitles(sTerm, page).subscribe(data =>{
         this.data = data;
-        this.totalPages = Math.ceil((this.data.totalResults)/10);      
+        this.totalPages = Math.ceil((this.data.totalResults)/10);     
         
           this.router.navigate([`search/${sTerm}/${page}`]);
       })
@@ -30,5 +30,8 @@ export class MoviesComponent implements OnInit {
     this.page = this.route.snapshot.paramMap.get("page");
     this.getTitle(this.searchTerm, this.page)
    }
+   numSequence(n: number): Array<number> {
+    return Array(n);
+  }
 
 }
