@@ -7,13 +7,15 @@ import { SearchboxComponent } from './searchbox/searchbox.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginationButtonComponent } from './pagination-button/pagination-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchboxComponent,
     MoviesComponent,
-    HeaderComponent
+    HeaderComponent,
+    PaginationButtonComponent
   ],
   imports: [
     BrowserModule,

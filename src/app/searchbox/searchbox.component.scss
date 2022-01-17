@@ -27,6 +27,27 @@ button{
     }
 
 }
+.pgn-button{
+    margin: 2em;
+}
+a{
+    padding: 10px;
+    width: 20px;
+    background: gray;
+    border: none;
+    color: rgb(8, 8, 8);
+    border-radius: 10px;
+    margin: 10px;
+    &:active{
+        background:blue;
+        color: white;
+    }
+    &:hover {
+        background:rgb(255, 2, 129);
+        color: black;
+    }
+
+}
 
 .fill {
     display: flex;

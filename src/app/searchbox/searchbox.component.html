@@ -1,24 +1,26 @@
 <div class="sbox">
   <div class="searchArea">
     <label for="name">Search for the movie name </label><br>
-    <input type="text" placeholder="Title" #searchTerm >
-    <button (click)="getTitle(searchTerm.value, page) " >Search</button>
-  </div>
+    <input type="text" placeholder="Title" #sTerm >
+    <button (click)="getTitle(sTerm.value, page) ">Search</button>
+    <h2>Total Pages: {{totalPages}} </h2><br>
+    <div class="movies"> 
    
-
-  <div class="movies"> 
-
-    <div *ngFor="let point of data.Search" class="movie-card">
-            <div class="fill">
-              <img src={{point.Poster}}>
-            </div>
+      <div *ngFor="let point of data.Search" class="movie-card">
+              <div class="fill">
+                <img src={{point.Poster}}>
+              </div>
+              
+              <div class="movie-details">
+                  <h3>Title: {{point.Title | uppercase}} </h3>
+                  <h3>IMDB ID: {{point.imdbID}}</h3>
+                  <h3>Year of Release: {{point.Year}} </h3>
+              </div>               
             
-            <div class="movie-details">
-                <h3>Title: {{point.Title | uppercase}} </h3>
-                <h3>IMDB ID: {{point.imdbID}}</h3>
-                <h3>Year of Release: {{point.Year}} </h3>
-            </div>               
-          
-    </div>
-
-</div>
+      </div>
+  </div>
+  <div class = "pgn-button" >
+    <a *ngFor="let i of [].constructor(totalPages)"
+    >{{page}}</a>
+ </div> 
+  </div>
