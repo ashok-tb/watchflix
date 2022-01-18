@@ -15,16 +15,26 @@ export class SearchboxComponent implements OnInit {
    ) { }
   getTitle(sTerm : any) : void {
     this.searchResults.getTitles(sTerm, 1).subscribe(data =>{
+        if(sTerm==null){
+          this.router.navigate([``]);
+        }
+        else{
+          this.router.navigate([`search/${sTerm}/${1}`]);
+          this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
+        }
         
-        this.router.navigate([`search/${sTerm}/${1}`]);
-        this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
+        
+        
     })
     
   }
 
   ngOnInit(): void { 
-    this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
-    this.getTitle(this.searchTerm)
+    if(this.route.snapshot.paramMap.get("sTerm")!=null){
+      this.searchTerm = this.route.snapshot.paramMap.get("sTerm")
+      this.getTitle(this.searchTerm)
+    }
+   
    }
 
 }
