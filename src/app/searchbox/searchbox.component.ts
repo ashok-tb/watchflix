@@ -15,7 +15,9 @@ export class SearchboxComponent implements OnInit {
    ) { }
   getTitle(sTerm : any) : void {
     this.searchResults.getTitles(sTerm, 1).subscribe(data =>{
+        
         this.router.navigate([`search/${sTerm}/${1}`]);
+        this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
     })
     
   }

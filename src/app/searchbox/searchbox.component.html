@@ -3,7 +3,6 @@
     <label for="name">Search for the movie name </label><br>
     
     <input type="text" placeholder="Title" #sTerm />
-   <button (click)="getTitle(sTerm.value) ">Search</button>
+   <a (click)="getTitle(sTerm.value)" href="/search/{{sTerm.value}}/1" >Search</a>
    
-
   </div>

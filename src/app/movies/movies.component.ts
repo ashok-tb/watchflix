@@ -28,7 +28,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void { 
     this.searchTerm = this.route.snapshot.paramMap.get("sTerm");
     this.page = this.route.snapshot.paramMap.get("page");
-    this.getTitle(this.searchTerm, this.page)
+    this.getTitle(this.route.snapshot.paramMap.get("sTerm"), this.page)
    }
    numSequence(n: number): Array<number> {
     return Array(n);
