@@ -34,4 +34,8 @@ export class MoviesComponent implements OnInit {
     return Array(n);
   }
 
+  currPage(n : number): boolean{
+    return (n==this.page);
+  }
+
 }
